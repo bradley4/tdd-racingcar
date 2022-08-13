@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class Rule {
@@ -14,16 +15,19 @@ public class Rule {
         throw new RuntimeException("랜덤 숫자의 범위를 벗어났습니다.");
     }
 
-    public String getWinner(List<Car> cars) {
-        String winner = "";
+    public List<String> getWinner(List<Car> cars) {
+        List<String> winners = new ArrayList<>();
         int winnerPosition = 0;
         for (Car car : cars) {
             if (winnerPosition < car.getPosition()) {
                 winnerPosition = car.getPosition();
-                winner = car.getName();
+                winners.clear();
+                winners.add(car.getName());
+            } else if (winnerPosition == car.getPosition()) {
+                winners.add(car.getName());
             };
         }
 
-        return winner;
+        return winners;
     }
 }
