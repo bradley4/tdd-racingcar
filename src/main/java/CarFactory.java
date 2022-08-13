@@ -1,18 +1,20 @@
 import java.util.*;
 
 public class CarFactory {
-    private String NAMEDELIMITER = ",";
+    private String NAME_DELIMITER = ",";
     private List<Car> cars;
 
-    public List<Car> makeCars(String carNames) {
-        String[] carNamesList = carNames.split(NAMEDELIMITER);
+    public List<Car> makeCars(int carCount, String carNames) {
+        String[] carNamesList = carNames.split(NAME_DELIMITER);
         validateDupleNames(carNamesList);
+
+        if (carCount != carNamesList.length) {
+            throw new RuntimeException("자동차의 개수만큼 이름을 입력해주세요.");
+        }
 
         cars = new ArrayList<>();
         for (String carName : carNamesList) {
-            // TODO: 이름이 없으면 자동차를 만들지 못하도록 Car 생성자에서 이름을 설정하도록 변경해보기
-            Car car = new Car();
-            car.setName(carName);
+            Car car = new Car(carName);
             cars.add(car);
         }
 

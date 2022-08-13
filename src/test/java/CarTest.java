@@ -13,14 +13,14 @@ public class CarTest {
 
     @BeforeEach
     void setUp() {
-        car = new Car();
+        car = new Car("이름");
     }
 
     @DisplayName("자동차에 이름을 설정할 수 있어야 한다.")
     @ParameterizedTest
     @ValueSource(strings = "Peter")
     void setNameTest(String name) {
-        car.setName(name);
+        Car car = new Car(name);
 
         assertThat(car.getName()).isEqualTo(name);
     }
@@ -30,11 +30,11 @@ public class CarTest {
     @NullAndEmptySource
     void setNullAndEmptyNameTest(String name) {
         assertThatExceptionOfType(RuntimeException.class).isThrownBy(() -> {
-            car.setName(name);
+            new Car(name);
         });
     }
 
-    @DisplayName("자동차는 위치를 가지고 있어야 한다.")
+    @DisplayName("자동차는 위치를 가지고 있어야 한다. 초기값은 0이다.")
     @Test
     void getPositionTest() {
         int result = car.getPosition();

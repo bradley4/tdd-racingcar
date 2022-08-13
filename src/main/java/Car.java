@@ -1,9 +1,9 @@
 
 public class Car {
-    private String name;
+    private final String name;
     private int position = 0;
 
-    public void setName(String name) {
+    public Car(String name) {
         validateName(name);
         this.name = name;
     }
