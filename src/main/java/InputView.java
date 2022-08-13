@@ -20,7 +20,7 @@ public class InputView {
 
 
     public int getRoundCount() throws IOException {
-        writer.write("시도할 횟수는 몇 회인가요?");
+        writer.write("시도할 횟수는 몇 회인가요?\n");
         writer.flush();
         String roundCount = reader.readLine();
         validateNumber(roundCount);

@@ -1,4 +1,6 @@
-import java.io.*;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.List;
 
 public class ResultView {
@@ -19,13 +21,16 @@ public class ResultView {
             repeat(car.getPosition());
             printer.append("\n");
         }
+        printer.append("\n");
         writer.write(printer.toString());
         writer.flush();
     }
 
-    public void printWinner(String winner) throws IOException {
+    public void printWinner(List<String> winners) throws IOException {
+        String[] winnerArray = winners.toArray(new String[winners.size()]);
+        String winner = String.join(", ", winnerArray);
         writer.write(winner);
-        writer.write("가 우승하였습니다!");
+        writer.write("가(이) 우승하였습니다!");
     }
 
     public void closeBuffer() throws IOException {
