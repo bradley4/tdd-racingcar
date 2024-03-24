@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class CarManipulationTest {
 
-    @DisplayName("파라미터값이 4이상이면 true(전진), 3이하면 false(멈춤)를 리턴한다")
+    @DisplayName("자동차 전진/멈춤 판단 - 파라미터값이 4이상이면 true(전진), 3이하면 false(멈춤)를 리턴한다")
     @ParameterizedTest
     @MethodSource("carMoveForwardTestCases")
     void checkShouldCarMoveForward(int input, boolean expectedValue) {
