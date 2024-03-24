@@ -1,7 +1,7 @@
 public class Car {
 
-    public char moveCar() {
-        return '-';
+    public String moveCar(boolean shouldMove) {
+        return shouldMove ? "-": "";
     }
 
 }

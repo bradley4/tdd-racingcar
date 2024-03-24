@@ -9,8 +9,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class CarManipulationTest {
 
-    @ParameterizedTest
     @DisplayName("파라미터값이 4이상이면 true, 3이하면 false를 리턴한다")
+    @ParameterizedTest
     @MethodSource("carMoveForwardTestCases")
     void checkShouldCarMoveForward(int input, boolean expectedValue) {
         CarManipulation carManipulation = new CarManipulation();
